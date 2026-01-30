@@ -1,0 +1,78 @@
+---
+const navLinks = [
+  { text: "Inicio", href: "#inicio" },
+  { text: "Beneficios", href: "#beneficios" },
+  { text: "Cómo Funciona", href: "#como-funciona" },
+  { text: "Planes", href: "#planes" },
+  { text: "Descargas", href: "#descargas" },
+  { text: "Preguntas", href: "#faq" },
+];
+---
+
+<nav class="fixed w-full top-0 z-[100] transition-all duration-300" id="navbar">
+  <div class="absolute inset-0 bg-dark/0 backdrop-blur-[0px] border-b border-white/0 transition-all duration-300" id="nav-bg"></div>
+  
+  <div class="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between relative z-10">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <img 
+        src="/logo_flujo.webp" 
+        alt="Logo Flujo TV" 
+        width="48" 
+        height="48" 
+        class="h-12 w-12 object-contain opacity-95"
+      />
+      <div class="flex flex-col">
+        <span class="font-display font-bold text-xl leading-none tracking-tight">
+          FLUJO<span class="text-orange">TV</span>
+        </span>
+        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Perú</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center gap-8">
+      {navLinks.map(link => (
+        <a 
+          href={link.href} 
+          class="text-sm font-medium text-gray-300 hover:text-orange transition-colors relative group py-2"
+        >
+          {link.text}
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-orange transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA Button -->
+    <a 
+      href="#planes" 
+      class="hidden md:flex items-center gap-2 bg-gradient-orange text-dark px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange/50"
+    >
+      Comprar Ahora
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button class="lg:hidden text-white p-2" id="mobile-menu-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const navBg = document.getElementById('nav-bg');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navBg?.classList.remove('bg-dark/0', 'backdrop-blur-[0px]', 'border-white/0');
+      navBg?.classList.add('bg-dark/95', 'backdrop-blur-xl', 'border-white/10');
+    } else {
+      navBg?.classList.add('bg-dark/0', 'backdrop-blur-[0px]', 'border-white/0');
+      navBg?.classList.remove('bg-dark/95', 'backdrop-blur-xl', 'border-white/10');
+    }
+  });
+</script>
+

@@ -1,0 +1,235 @@
+---
+const whatsappNumber = "51914326729";
+
+const plans = [
+  {
+    name: "1 Mes",
+    duration: "Mensual",
+    price: "34.99",
+    oldPrice: null,
+    popular: false,
+    message: "Hola, quiero el plan de 1 Mes (S/. 34.99) para Flujo TV Perú",
+    features: ["+ 5000 Canales en Vivo", "Películas y Series HD, FHD y 4K", "Calidad Estable", "3 Pantallas Simultáneas", "Soporte 24/7"]
+  },
+  {
+    name: "3 Meses",
+    duration: "Trimestral",
+    price: "99.99",
+    oldPrice: null,
+    popular: false,
+    message: "Hola, quiero el plan de 3 Meses (S/. 99.99) para Flujo TV Perú",
+    features: ["+ 5000 Canales en Vivo", "Películas y Series HD, FHD y 4K", "Calidad Estable", "3 Pantallas Simultáneas", "Soporte 24/7"]
+  },
+  {
+    name: "6 Meses",
+    duration: "Semestral + 1 Gratis",
+    price: "179.99",
+    oldPrice: "210.00",
+    popular: true,
+    message: "Hola, quiero el plan de 6 Meses + 1 Gratis (S/. 179.99) para Flujo TV Perú",
+    features: ["+ 5000 Canales en Vivo", "Películas y Series HD, FHD y 4K", "Calidad Estable", "3 Pantallas Simultáneas", "Soporte 24/7", "+ 1 Mes GRATIS"]
+  },
+  {
+    name: "12 Meses",
+    duration: "Anual + 2 Gratis",
+    price: "339.99",
+    oldPrice: "420.00",
+    popular: false,
+    message: "Hola, quiero el plan de 12 Meses + 2 Gratis (S/. 339.99) para Flujo TV Perú",
+    features: ["+ 5000 Canales en Vivo", "Películas y Series HD, FHD y 4K", "Calidad Estable", "3 Pantallas Simultáneas", "Soporte 24/7", "+ 2 Meses GRATIS"]
+  },
+];
+
+const getWhatsAppLink = (message: string) => {
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+};
+---
+
+<section class="py-32 relative overflow-hidden" id="planes">
+  <!-- Background Effects -->
+  <div class="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-orange/10 rounded-full blur-[150px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-20">
+      <span class="inline-block text-orange font-bold text-sm uppercase tracking-widest mb-4">Precios Transparentes</span>
+      <h2 class="font-display font-black text-4xl md:text-6xl mb-6">
+        <span class="text-white">Elige Tu</span> <span class="text-orange">Experiencia</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Planes flexibles en Soles. Sin costos ocultos. Cancela cuando quieras.
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      {plans.map((plan, index) => (
+        <div class={`pricing-card relative group ${plan.popular ? 'lg:-translate-y-4' : ''}`} data-plan-index={index} data-is-popular={plan.popular}>
+          
+          {/* Glow Effect */}
+          <div class={`glow-effect absolute -inset-1 rounded-3xl blur-xl transition-opacity duration-500 bg-gradient-orange ${
+            plan.popular ? 'opacity-60' : 'opacity-0'
+          }`}></div>
+
+          {/* Popular Badge */}
+          {plan.popular && (
+            <div class="absolute -top-5 inset-x-0 flex justify-center z-20">
+              <span class="bg-gradient-orange text-dark text-xs font-black px-5 py-2 rounded-full uppercase tracking-wider shadow-lg">
+                ⭐ Más Popular
+              </span>
+            </div>
+          )}
+
+          {/* Card */}
+          <div class={`pricing-card-inner relative h-full bg-dark-card/95 backdrop-blur-xl rounded-3xl p-8 border transition-all duration-300 ${
+            plan.popular 
+              ? 'border-orange shadow-2xl shadow-orange/20' 
+              : 'border-white/10'
+          }`}>
+            
+            {/* Header */}
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-display font-bold text-white mb-1">{plan.name}</h3>
+              <p class="text-sm text-gray-400">{plan.duration}</p>
+            </div>
+
+            {/* Price */}
+            <div class="text-center mb-8 pb-8 border-b border-white/10">
+              {plan.oldPrice && (
+                <div class="flex items-center justify-center gap-2 mb-2">
+                  <span class="text-sm text-gray-500 line-through">S/. {plan.oldPrice}</span>
+                  <span class="text-xs font-bold text-orange bg-orange/10 px-2 py-1 rounded">
+                    -{Math.round((1 - parseFloat(plan.price) / parseFloat(plan.oldPrice)) * 100)}%
+                  </span>
+                </div>
+              )}
+              <div class="flex items-center justify-center items-baseline gap-1">
+                <span class="text-2xl font-bold text-orange">S/.</span>
+                <span class="text-6xl font-black text-white tracking-tight">{plan.price}</span>
+              </div>
+              {plan.popular && (
+                <p class="text-sm text-green-400 font-semibold mt-2">Mejor Valor</p>
+              )}
+            </div>
+
+            {/* Features */}
+            <ul class="space-y-4 mb-8">
+              {plan.features.map(feature => (
+                <li class="flex items-start gap-3 text-sm text-gray-300">
+                  <svg class="w-5 h-5 text-orange flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA Button */}
+            <a 
+              href={getWhatsAppLink(plan.message)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`pricing-button block w-full text-center py-4 rounded-xl font-bold text-sm uppercase tracking-wide transition-all duration-300 ${
+                plan.popular
+                  ? 'bg-gradient-orange text-dark shadow-lg shadow-orange/30 hover:shadow-orange/50 hover:scale-105'
+                  : 'bg-white/10 text-white hover:bg-white/20 hover:scale-105'
+              }`}
+            >
+              Contratar Ahora
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Bottom CTA */}
+    <div class="text-center mt-16">
+      <p class="text-gray-400 mb-4">¿Tienes dudas sobre los planes?</p>
+      <a 
+        href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, tengo consultas sobre los planes de Flujo TV Perú")}`}
+        target="_blank"
+        class="inline-flex items-center gap-2 text-orange hover:text-orange-light transition-colors font-medium"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Exclusive pricing hover - only hovered card gets highlighted with orange button
+  document.addEventListener('DOMContentLoaded', () => {
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    
+    pricingCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        // Remove highlight from all cards
+        pricingCards.forEach(c => {
+          const glow = c.querySelector('.glow-effect');
+          const inner = c.querySelector('.pricing-card-inner');
+          const button = c.querySelector('.pricing-button');
+          
+          if (glow && inner && button) {
+            glow.style.opacity = '0';
+            inner.classList.remove('border-orange', 'shadow-2xl', 'shadow-orange/20');
+            inner.classList.add('border-white/10');
+            
+            // Reset button to default state
+            button.classList.remove('bg-gradient-orange', 'text-dark');
+            button.classList.add('bg-white/10', 'text-white');
+          }
+        });
+        
+        // Highlight only the hovered card
+        const glow = card.querySelector('.glow-effect');
+        const inner = card.querySelector('.pricing-card-inner');
+        const button = card.querySelector('.pricing-button');
+        
+        if (glow && inner && button) {
+          glow.style.opacity = '1';
+          inner.classList.remove('border-white/10');
+          inner.classList.add('border-orange', 'shadow-2xl', 'shadow-orange/20');
+          
+          // Change button to orange
+          button.classList.remove('bg-white/10', 'text-white');
+          button.classList.add('bg-gradient-orange', 'text-dark');
+        }
+      });
+    });
+    
+    // Reset to default (6 months) when mouse leaves the pricing section
+    const pricingSection = document.querySelector('#planes');
+    if (pricingSection) {
+      pricingSection.addEventListener('mouseleave', () => {
+        pricingCards.forEach(card => {
+          const isPopular = card.getAttribute('data-is-popular') === 'true';
+          const glow = card.querySelector('.glow-effect');
+          const inner = card.querySelector('.pricing-card-inner');
+          const button = card.querySelector('.pricing-button');
+          
+          if (glow && inner && button) {
+            if (isPopular) {
+              glow.style.opacity = '0.6';
+              inner.classList.remove('border-white/10');
+              inner.classList.add('border-orange', 'shadow-2xl', 'shadow-orange/20');
+              
+              // Popular button stays orange
+              button.classList.remove('bg-white/10', 'text-white', 'border', 'border-white/20');
+              button.classList.add('bg-gradient-orange', 'text-dark');
+            } else {
+              glow.style.opacity = '0';
+              inner.classList.remove('border-orange', 'shadow-2xl', 'shadow-orange/20');
+              inner.classList.add('border-white/10');
+              
+              // Non-popular buttons reset to default
+              button.classList.remove('bg-gradient-orange', 'text-dark');
+              button.classList.add('bg-white/10', 'text-white');
+            }
+          }
+        });
+      });
+    }
+  });
+</script>
