@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const fecha = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Layout title="Términos y Condiciones - Flujo TV Perú">
+  <Navigation />
+  <main class="min-h-screen bg-dark">
+    <!-- Hero Section -->
+    <div class="relative bg-gradient-to-b from-dark-lighter to-dark border-b border-white/5 py-20">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-orange/5 rounded-full blur-[150px] pointer-events-none"></div>
+      
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+            Términos y Condiciones
+          </h1>
+          <p class="text-gray-400 text-lg">
+            Última actualización: <span class="text-orange">{fecha}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="container mx-auto px-4 py-16 max-w-3xl">
+      <div class="space-y-12">
+        
+        <!-- Section 1 -->
+        <section class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange/20 rounded-lg flex items-center justify-center">
+              <span class="text-orange font-bold">1</span>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-2xl font-bold text-white mb-3">Introducción</h2>
+              <p class="text-gray-400 leading-relaxed">
+                Bienvenido a Flujo TV Perú. Al adquirir nuestros servicios, usted acepta los siguientes términos y condiciones en su totalidad. Si no está de acuerdo con alguno de ellos, le recomendamos no continuar con la compra.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange/20 rounded-lg flex items-center justify-center">
+              <span class="text-orange font-bold">2</span>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-2xl font-bold text-white mb-3">Naturaleza del Servicio</h2>
+              <p class="text-gray-400 leading-relaxed mb-4">
+                Flujo TV Perú actúa exclusivamente como <span class="text-orange font-semibold">distribuidor oficial</span> e intermediario de acceso. 
+              </p>
+              <div class="bg-dark-lighter border border-orange/20 rounded-lg p-4 space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-orange flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span class="text-gray-400">No alojamos contenido con derechos de autor en nuestros servidores</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-orange flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span class="text-gray-400">No subimos ni administramos contenido ilegal</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-orange flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span class="text-gray-400">Actuamos como intermediarios legales de acceso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange/20 rounded-lg flex items-center justify-center">
+              <span class="text-orange font-bold">3</span>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-2xl font-bold text-white mb-3">Pagos y Reembolsos</h2>
+              <p class="text-gray-400 leading-relaxed mb-4">
+                Debido a la naturaleza digital del servicio (licencias y credenciales de acceso):
+              </p>
+              <div class="bg-orange/10 border border-orange/30 rounded-lg p-4 mb-4">
+                <p class="text-orange font-semibold flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+                  <span>No se ofrecen reembolsos una vez activada la credencial</span>
+                </p>
+              </div>
+              <p class="text-gray-400 leading-relaxed">
+                Excepción: En casos de falla técnica comprobable del servicio que no pueda ser solucionada por nuestro equipo de soporte después de múltiples intentos.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange/20 rounded-lg flex items-center justify-center">
+              <span class="text-orange font-bold">4</span>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-2xl font-bold text-white mb-3">Soporte Técnico</h2>
+              <p class="text-gray-400 leading-relaxed mb-4">
+                Ofrecemos soporte técnico garantizado a través de nuestros canales oficiales para asegurar la correcta configuración del servicio:
+              </p>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-dark-lighter border border-white/5 rounded-lg p-4">
+                  <div class="flex items-center gap-2 mb-2">
+                    <svg class="w-5 h-5 text-orange" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    <h3 class="font-semibold text-white">WhatsApp</h3>
+                  </div>
+                  <p class="text-sm text-gray-400">+51 913 717 057</p>
+                </div>
+                <div class="bg-dark-lighter border border-white/5 rounded-lg p-4">
+                  <div class="flex items-center gap-2 mb-2">
+                    <svg class="w-5 h-5 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <h3 class="font-semibold text-white">Correo</h3>
+                  </div>
+                  <p class="text-sm text-gray-400">soporte@flujooficial.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="space-y-4 pb-8">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange/20 rounded-lg flex items-center justify-center">
+              <span class="text-orange font-bold">5</span>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-2xl font-bold text-white mb-3">Contacto</h2>
+              <p class="text-gray-400 leading-relaxed mb-4">
+                Para cualquier duda, consulta o reclamación sobre estos términos y condiciones:
+              </p>
+              <div class="bg-dark-lighter border border-orange/20 rounded-lg p-4">
+                <p class="text-gray-300">
+                  📧 <a href="mailto:soporte@flujooficial.com" class="text-orange hover:text-orange/80 transition-colors">soporte@flujooficial.com</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

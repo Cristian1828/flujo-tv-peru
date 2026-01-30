@@ -9,8 +9,20 @@ Landing page premium optimizada para SEO, diseñada para posicionarse en búsque
 - **+5000 Canales en Vivo**: TV peruana e internacional en HD, FHD y 4K
 - **Precios en Soles**: Desde S/. 34.99/mes
 - **3 Pantallas Simultáneas**: Todos los planes incluyen lo mismo
-- **Soporte 24/7**: WhatsApp: +51 914 326 729
+- **Soporte 24/7**: WhatsApp: +51 913 717 057
 - **Sin Contratos**: Cancela cuando quieras
+- **Páginas Legales**: Términos y Condiciones + Política de Privacidad
+
+## 📄 Páginas Incluidas
+
+- `index.astro` - Página de inicio principal
+- `terminos.astro` - Términos y Condiciones
+- `privacidad.astro` - Política de Privacidad
+
+### Enlaces Accesibles
+- Navegación con anchor links en homepage
+- Redirección automática desde otras páginas hacia sections con anchors
+- Footer con enlaces legales y de navegación
 
 ## 💰 Planes
 
@@ -27,6 +39,7 @@ Landing page premium optimizada para SEO, diseñada para posicionarse en búsque
 - **Estilos**: TailwindCSS
 - **Tipografía**: Inter + Montserrat
 - **Colores**: Naranja (#FF6B00), Negro (#0a0a0a)
+- **Puerto Dev**: 4323
 
 ## 📱 SEO & Indexación
 

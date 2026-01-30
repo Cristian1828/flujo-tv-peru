@@ -9,4 +9,7 @@ export default defineConfig({
     defaultLocale: 'es-PE',
     locales: ['es-PE'],
   },
+  server: {
+    port: 4323
+  }
 });

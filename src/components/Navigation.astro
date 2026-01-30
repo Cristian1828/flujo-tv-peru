@@ -1,6 +1,6 @@
 ---
 const navLinks = [
-  { text: "Inicio", href: "#inicio" },
+  { text: "Inicio", href: "/" },
   { text: "Beneficios", href: "#beneficios" },
   { text: "Cómo Funciona", href: "#como-funciona" },
   { text: "Planes", href: "#planes" },
@@ -98,6 +98,34 @@ const navLinks = [
     }
   });
 
+  // Check if we're on the home page
+  const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
+  // Handle all anchor links in navigation
+  const allNavLinks = document.querySelectorAll('nav a[href*="#"]');
+  allNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      
+      // If NOT on homepage and clicking anchor link, redirect to home + anchor
+      if (!isHomePage && href.startsWith('#')) {
+        e.preventDefault();
+        window.location.href = '/' + href;
+        return;
+      }
+      
+      // If on homepage, do smooth scroll
+      if (isHomePage && href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
   // Mobile Menu Logic
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -110,12 +138,10 @@ const navLinks = [
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
     
-    // Toggle Menu Visibility
     if (isMenuOpen) {
       mobileMenu?.classList.remove('translate-x-full');
       document.body.style.overflow = 'hidden';
       
-      // Animate Hamburger to X
       line1?.classList.add('rotate-45', 'translate-y-2');
       line2?.classList.add('opacity-0');
       line3?.classList.add('-rotate-45', '-translate-y-2');
@@ -123,7 +149,6 @@ const navLinks = [
       mobileMenu?.classList.add('translate-x-full');
       document.body.style.overflow = '';
       
-      // Animate X back to Hamburger
       line1?.classList.remove('rotate-45', 'translate-y-2');
       line2?.classList.remove('opacity-0');
       line3?.classList.remove('-rotate-45', '-translate-y-2');
@@ -132,23 +157,9 @@ const navLinks = [
 
   mobileBtn?.addEventListener('click', toggleMenu);
 
-  // Close menu when clicking a link
   mobileLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      // If it's an anchor link, ensure smooth scroll
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          toggleMenu(); // Close menu first
-          setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }, 300); // Small delay to allow menu to close
-        }
-      } else {
-        toggleMenu();
-      }
+    link.addEventListener('click', () => {
+      toggleMenu();
     });
   });
 </script>

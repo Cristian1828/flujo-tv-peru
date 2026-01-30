@@ -5,7 +5,7 @@
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange/5 rounded-full blur-[150px] pointer-events-none"></div>
 
   <div class="container mx-auto px-4 py-16 relative z-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
       <!-- Brand -->
       <div>
         <div class="flex items-center gap-4 mb-6">
@@ -56,6 +56,15 @@
           </li>
         </ul>
       </div>
+
+      <!-- Legal -->
+      <div>
+        <h4 class="text-white font-display font-bold text-lg mb-6">Legal</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/terminos" class="text-gray-400 hover:text-orange transition-colors">Términos y Condiciones</a></li>
+          <li><a href="/privacidad" class="text-gray-400 hover:text-orange transition-colors">Política de Privacidad</a></li>
+        </ul>
+      </div>
     </div>
 
     <!-- Copyright -->
@@ -66,4 +75,30 @@
     </div>
   </div>
 </footer>
+
+<script>
+  const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+  
+  const footerLinks = document.querySelectorAll('footer a[href*="#"]');
+  footerLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      
+      if (!isHomePage && href.startsWith('#')) {
+        e.preventDefault();
+        window.location.href = '/' + href;
+        return;
+      }
+      
+      if (isHomePage && href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>
 ```
