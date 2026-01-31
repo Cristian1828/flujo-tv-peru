@@ -1,0 +1,30 @@
+{
+    "name": "Flujo TV Perú - Plataforma Premium",
+    "short_name": "Flujo TV Perú",
+    "description": "Streaming premium con +5,000 canales en vivo, deportes peruanos, series y películas en HD, FHD y 4K. La plataforma más completa de entretenimiento.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a0a",
+    "theme_color": "#FF6B00",
+    "orientation": "portrait-primary",
+    "lang": "es-PE",
+    "categories": [
+        "entertainment",
+        "streaming",
+        "television"
+    ],
+    "icons": [
+        {
+            "src": "/logo_flujo.webp",
+            "sizes": "192x192",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/logo_flujo.webp",
+            "sizes": "512x512",
+            "type": "image/webp",
+            "purpose": "any maskable"
+        }
+    ]
+}

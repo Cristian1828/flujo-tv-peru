@@ -1,0 +1,46 @@
+# robots.txt para peru.flujooficial.com
+# Configurado para máxima indexación en Perú y Sudamérica
+
+# Permitir todos los bots
+User-agent: *
+Allow: /
+
+# Bloquear recursos innecesarios
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://peru.flujooficial.com/sitemap.xml
+
+# Crawl delay (opcional)
+# Crawl-delay: 1
+
+# Bots específicos de búsqueda
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Bloquear bots de scraping agresivo
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
